@@ -3,9 +3,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<style>
-		*{
-			box-sizing: border-box;
-		}
 		div.full-page{
 			width:100%;
 			height:auto;
@@ -16,25 +13,88 @@
 		padding-right:0;
 		position:fixed;
 		overflow:hidden;
-		top:-1px;
+		top:-25px;
 		left:-2px;
 		width:100.3%;
-		z-index: 1;
+		z-index: 2;
 		}
 		div.row{
 		background:#374fed;
-		padding:6px 0px;
+		padding:5px 0px;
 		color:white;
 		font-size:20px;
 		overflow:hidden;
 	    }
-		img{
+		img.volleyball{
 		padding:0px 15px 4px 15px;
+		}
+		@media only screen and (max-width:700px)
+        {
+            div.row
+            { 
+                  background:#374fed; 
+                  margin-bottom: -31px; 
+                  margin-top: 5px;
+              }    
+            div#menuList.col-md-8{
+            	position: relative;
+            	width: 100%;
+            	margin-top: 0px;
+            	margin-bottom: 0px;
+            	display: block;
+				top:2%;
+				left:-1%;
+				transform: translate(-169px,6px);
+				color:white;
+				padding-bottom: 33px;
+				overflow: hidden;
+				transition: 0.5s;
+            }      
+            img.menu-icon{
+            	position: absolute;
+            	z-index: 1;
+            	display:block;
+            	transform: translate(327px,11px);
+            	cursor: pointer;
+            	top:2%;
+            }
+            a.header{
+            	display:block;
+				padding:4px 8px;
+				color:white;
+				transition: 0.2s;
+				}
+			a.header:hover{
+			background-color:#49c5de;
+			color:white;
+			padding:4px 8px; 
+			text-decoration:none;
+			}
+			div.navbar{
+			background:#374fed;
+			padding-left:0;
+			padding-right:0;
+			position:fixed;
+			overflow-x:hidden;
+			width: 100%;
+            top: 0;
+            right: 0;
+	        }
+	        div.image{
+	        	width:100%;
+	        	padding: 100%;
+	        }
+	        div.intro{
+	        	position: relative;
+	        	top: 32px;
+	        }
 		}
 		a.header{
 		text-align: center;
 		padding:6px 8px;
 		color:white;
+		transition: 0.5s;
+		margin: 2px;
 		}
 		a.header:hover{
 		background-color:#49c5de;
@@ -42,6 +102,8 @@
 		color:white;
 		padding:13px 8px; 
 		text-decoration:none;
+		border-radius: 10px;
+        margin: 2px;
 		}
 		a.header:visited{
 		color:white;
@@ -54,6 +116,7 @@
 		align-items:center;
 		background-color:#eee;
 		padding-left:76px;
+		transition: 0.3s;
 		}
 		a.active1{
 		padding:12px 40%;
@@ -63,6 +126,7 @@
 		align-items:center;
 		padding-left:76px;
 		background-color:#fff;
+		transition: 0.3s;
 		}
 		a.active2{
 		padding:12px 40%;
@@ -72,6 +136,7 @@
 		align-items:center;
 		background-color:#eee;
 		padding-left:76px;
+		transition: 0.3s;
 		}
 		a.active3{
 		padding:12px 41%;
@@ -81,6 +146,7 @@
 		align-items:center;
 		padding-left:75px;
 		background-color:#fff;
+		transition: 0.3s;
 		}
 		a.active4{
 		padding:12px 35%;
@@ -90,6 +156,7 @@
 		align-items:center;
 		background-color:#eee;
 		padding-left:73px;
+		transition: 0.3s;
 		}
 		a.active:hover{
 		padding:12px 42%;
@@ -152,27 +219,34 @@
 			color:#38b3e8;
 			text-decoration:none;
 			}
+		}
+		img.menu-icon{
+			position: absolute;
+			z-index: 1;
+    		transform: translate(177px, 40px);
+		}
 		</style>
 		<title> Volleyball tutorials </title>
 	    </head>
 		<body>
 		<div class="full-page">
-		<div class="navbar">
+		<div class="navbar" id="mainList">
+			<img class="menu-icon" src="https://img.icons8.com/android/24/ffffff/menu.png" onclick="togglemenu()">
 			<div class="row">
-				<div class="col-md-4">
-					<a class="main" href="volleyball.html" style="text-decoration: none; color: white;"><img src="https://img.icons8.com/android/24/ffffff/volleyball.png"/>
-					VOLLEYBALL WORLD</a>
+				<div class="col-md-4" id="menu">
+					<a class="main" href="volleyball.html" style="text-decoration: none; color: white;"><img class="volleyball" src="https://img.icons8.com/android/24/ffffff/volleyball.png"/>
+					VOLLEYBALL WORLD </a>
 				</div>
-				<div class="col-md-8" id="header" style='margin:auto;display:block;padding-left:41%;color:white;'>
-					<a class="header" href="volleyball.html"><img width="52" src="https://img.icons8.com/material-rounded/50/ffffff/home.png"/>Home</a>
-					<a class="header" href="login.html"><img src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png"/>Login</a>
-					<a class="header" href="signup.html"><img width="50" src="https://img.icons8.com/metro/50/ffffff/add-user-male.png"/>Sign Up</a>
+				<div class="col-md-8" id="menuList" style='display:block;padding-left:42%;color:white;'>
+					<a class="header" href="volleyball.html"><img class="icons" width="39" src="https://img.icons8.com/material-rounded/50/ffffff/home.png"/ style="padding: 1px 8px 6px 8px;">Home</a>
+					<a class="header" href="login.html"><img class="icons" src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png"/ style="padding: 1px 8px 6px 8px;">Login</a>
+					<a class="header" href="signup.html"><img class="icons" width="39" src="https://img.icons8.com/metro/50/ffffff/add-user-male.png"/ style="padding: 1px 8px 6px 8px;">Sign Up</a>
 				</div>
 			</div>
 		</div>
 		<br><br>
-		<div style='padding-left:100px;padding-right:100px;padding-top:100px;padding-bottom:50px;background-image:url("https://hobbyhelp.com/wp-content/uploads/2018/11/best-volleyball-ball1-1024x533.jpg");background-size:cover;background-position: center;'>
-			<div style='color:white;font-size:20px;padding-top:6%;'>
+		<div class="image" style='padding-left:100px;padding-right:100px;padding-top:100px;padding-bottom:50px;background-image:url("https://hobbyhelp.com/wp-content/uploads/2018/11/best-volleyball-ball1-1024x533.jpg");background-size:cover;background-position: center;'>
+			<div class="intro" style='color:white;font-size:20px;padding-top:6%;'>
 				<h1><b>Volleyball Tutorials</b></h1>
 				<b>Volleyball is a game of Hardwork and Teamwork which is not only driven by pure spirit but also by an ocean of confidence and trust.</b>
 			</div>
@@ -253,5 +327,23 @@
        		</div>
        </footer>
        </div>
+       <script>
+       	
+       	var menuList = document.getElementById("menuList");
+
+       	menuList.style.maxHeight = "0px";
+
+       	function togglemenu() {
+
+       	if(menuList.style.maxHeight == "0px")
+		{
+			menuList.style.maxHeight = "170px";
+		}
+        else
+		{
+			menuList.style.maxHeight = "0px";
+		}
+	}
+       </script>
 	</body>
 </html>
