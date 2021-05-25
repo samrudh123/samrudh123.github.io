@@ -28,6 +28,119 @@
         img{
         padding:0px 15px 4px 15px;
         }
+        @media only screen and (min-width: 360px) and (max-width:640px)
+        {
+            div.row
+            { 
+                  background:#374fed; 
+                  margin-bottom: -31px; 
+                  margin-top: 5px;
+              }    
+            div#menuList.col-md-8{
+                position: relative;
+                width: 100%;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                display: block;
+                top:2%;
+                left:-1%;
+                transform: translate(-74px,6px);
+                color:white;
+                padding-bottom: 33px;
+                overflow: hidden;
+                transition: 0.5s;
+            }      
+            img.menu-icon{
+                    position: relative;
+                    transform: translate(327px, 36px);
+                    top:39px;
+            }
+            a.header{
+                display:block;
+                padding:4px 8px;
+                color:white;
+                transition: 0.2s;
+                }
+            a.header:hover{
+            background-color:#49c5de;
+            color:white;
+            padding:4px 8px; 
+            text-decoration:none;
+            }
+            div.navbar{
+            background:#374fed;
+            padding-left:0;
+            padding-right:0;
+            position:fixed;
+            overflow-x:hidden;
+            width: 100%;
+            top: -28px;
+            right: 0;
+            margin-left: 2px;
+            }
+            div.image{
+                width:100%;
+                padding: 100%;
+            }
+            div.intro{
+                position: relative;
+                top:32px;
+            }
+            div.col-md-9{
+                padding-top:25%;
+                text-align: center;
+            }
+            div.row2{
+                position: relative;
+                padding-right: 1110px;
+                margin-left: -16px;
+                padding-top: 23px;
+            }
+            div.row4{
+                position: relative;
+                padding-right: 1110px;
+                margin-left: -16px;
+            }
+            h4.rules{
+                    position: relative;
+                    left: 222px;
+                    margin-left: -216px;
+                    padding-bottom: 23px;
+            }
+            h4.tutorial{
+                    position: relative;
+                    left: 296px;
+                    margin-left: -340px;
+                    padding-bottom: 23px;   
+            }
+            h4.float{
+                    position: relative;
+                    left: 243px;
+                    margin-left: -446px;
+                    padding-bottom: 0px;
+                    margin-bottom: -53px;
+            }
+            h4.overhead{
+                    position: relative;
+                    left: 919px;
+                    margin-left: -168px;
+                    padding-bottom: 23px;
+            }
+            h4.footwork{
+                    position: relative;
+                    left: 258px;
+                    margin-left: -216px;
+                    padding-bottom: 23px;
+                    padding-top: 15px;
+            }
+            h4.angles{
+                    position: relative;
+                    left: 258px;
+                    margin-left: -216px;
+                    padding-bottom: 23px;
+                    padding-top: 15px;
+            }
+        }
         @media only screen and (min-width: 411px) and (max-width:823px)
         {
             div.row
@@ -90,65 +203,6 @@
                 top:32px;
             }
         }
-         @media only screen and (min-width: 360px) and (max-width:640px)
-        {
-            div.row
-            { 
-                  background:#374fed; 
-                  margin-bottom: -31px; 
-                  margin-top: 5px;
-              }    
-            div#menuList.col-md-8{
-                position: relative;
-                width: 100%;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                display: block;
-                top:2%;
-                left:-1%;
-                transform: translate(-74px,6px);
-                color:white;
-                padding-bottom: 33px;
-                overflow: hidden;
-                transition: 0.5s;
-            }      
-            img.menu-icon{
-                    position: relative;
-                    transform: translate(327px, 36px);
-                    top:39px;
-            }
-            a.header{
-                display:block;
-                padding:4px 8px;
-                color:white;
-                transition: 0.2s;
-                }
-            a.header:hover{
-            background-color:#49c5de;
-            color:white;
-            padding:4px 8px; 
-            text-decoration:none;
-            }
-            div.navbar{
-            background:#374fed;
-            padding-left:0;
-            padding-right:0;
-            position:fixed;
-            overflow-x:hidden;
-            width: 100%;
-            top: -28px;
-            right: 0;
-            margin-left: 2px;
-            }
-            div.image{
-                width:100%;
-                padding: 100%;
-            }
-            div.intro{
-                position: relative;
-                top:32px;
-            }
-        }
         @media only screen and (min-width: 768px) and (max-width: 1366px){
             div#menuList.col-md-8{
                     left:-93px;
@@ -157,6 +211,7 @@
                 right: -46px;
             }
             div#recommend.col-md-8{
+                position: relative;
                 margin-top: -6px;
             }
         }
@@ -169,6 +224,10 @@
             iframe.tutorial{
                 position: relative;
                 transform: translate(20px,0px);
+            }
+            div#recommend.col-md-8{
+                position: relative;
+                transform: translate(10px, -14px);
             }
         }
         a.header{
@@ -290,6 +349,7 @@
         width:76%;
         }
         iframe.rules{
+            position: relative;
             margin-top: 10%;
             margin-left: 15%;
         }
@@ -306,11 +366,11 @@
             margin-left: -324%;
         }
         iframe.footwork{
-            margin-top: -93%;
+            margin-top: -92.5%;
             margin-left: 170%;
         }
         iframe.angles{
-            margin-top: -93%;
+            margin-top: -92.5%;
             margin-left: 210%;
         }
         a.footer:hover{
@@ -371,30 +431,30 @@
                 <div class="row2">
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="rules" width="300" height="160" src="https://www.youtube.com/embed/gOgfoEGUDCA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="margin-right:-35%;padding-top: 6px;padding-left: 50px;">How to Pass a Ball</h4>
+                        <h4 class="rules" align="center" style="margin-right:-35%;padding-top: 6px;padding-left: 50px;">How to Pass a Ball</h4>
                     </div>
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="tutorial" width="300" height="160" src="https://www.youtube.com/embed/Ymx-bj5WbK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="margin-right:-125%;padding-top: 6px;padding-left:50px;">Passing with Accuracy and Control</h4>
+                        <h4 class="tutorial" align="center" style="margin-right:-125%;padding-top: 6px;padding-left:50px;">Passing with Accuracy and Control</h4>
                     </div>
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="float" width="300" height="160" src="https://www.youtube.com/embed/xfCoHL6HvdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="margin-right:-105%;padding-top: 6px;padding-left: 260px;">Passing Float Serves</h4>
+                        <h4 class="float" align="center" style="margin-right:-105%;padding-top: 6px;padding-left: 260px;">Passing Float Serves</h4>
                     </div>
                     </div>
                     <br><br><br><br>
                     <div class="row4">
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="overhead" width="300" height="160" src="https://www.youtube.com/embed/d1mWjl3D0dg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="padding-top: 4px;margin-left:-616%;">Overhead Passing</h4>
+                        <h4 class="overhead" align="center" style="padding-top: 4px;transform: translate(-685px, 0px);">Overhead Passing</h4>
                     </div>
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="footwork" width="300" height="160" src="https://www.youtube.com/embed/bca-LHXiClc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="margin-top: -14%;margin-right:-376%;">Passing Footwork</h4>
+                        <h4 class="footwork" align="center" style="margin-top: -13%;margin-right:-376%;">Passing Footwork</h4>
                     </div>
                     <div class="col-md-3" style="width: calc(75%/3);">
                         <iframe class="angles" width="300" height="160" src="https://www.youtube.com/embed/rOb0RN3Z8G4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h4 align="center" style="margin-top: -14%;margin-right:-456%;">Passing Angles</h4>
+                        <h4 class="angles" align="center" style="margin-top: -13%;margin-right:-456%;">Passing Angles</h4>
                     </div>
                 </div>
             </div>
@@ -430,13 +490,13 @@
         <br><br><br>
         <footer style="width: 100%;background-color: #555555;margin:auto;padding-bottom: 100px;padding-left: 60px;padding-right: 100px;padding-top: 40px;">
             <div class="row3" style="width:75%;margin: auto;">
-                <div class="col-md-8" style="background-color: #555555;color: white;font-size: 19px;border-right: 2px solid white;">
+                <div class="col-md-8" id="recommend" style="background-color: #555555;color: white;font-size: 19px;">
                     <br>
                     For more good volleyball content and videos, check out <a class="footer" href="https://www.youtube.com/channel/UCoEMagRUvrXELuJZwS4DevA" style="color:#38b3e8;text-decoration:none;" target="_blank">Elevate Yourself</a>
                     <br>
                     <br>
                 </div>
-                <div class="col-md-4" style="background-color: #555555;color: white;font-size: 19px;padding-left: 8%;">
+                <div class="col-md-4" style="background-color: #555555;color: white;font-size: 19px;padding-left: 8%;border-left: 2px solid white;">
                     Contact Us:<br>
                 <div style="padding-top:6px;font-size:15px;">
                         samrudhraaj@gmail.com<br>
