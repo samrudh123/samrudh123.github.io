@@ -1,0 +1,211 @@
+<html>
+<head><title> Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    @media only screen and (min-width: 768px) and (max-width: 1366px){
+        div#menuList.col-md-8{
+            margin-left: -39px;
+        }
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1440px){
+        div#menuList.col-md-8{
+            transform: translate(-29px, 0px);
+        }
+    }
+    @media only screen and (min-width: 360px) and (max-width:640px)
+        {
+            div.a{
+                min-width: 100%;
+            }
+            div.row
+            { 
+                  background:#374fed; 
+                  margin-bottom: -31px; 
+                  margin-top: 5px;
+              }    
+            div#menuList.col-md-8{
+                position: relative;
+                width: 100%;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                display: block;
+                top:2%;
+                left:-1%;
+                transform: translate(-156px,-9px);
+                color:white;
+                padding-bottom: 0px;
+                overflow: hidden;
+                transition: 0.5s;
+            }      
+            img.menu-icon{
+                    top: 67px;
+                    left: 148px;
+            }
+            a.header{
+                display:block;
+                padding:4px 8px;
+                color:white;
+                transition: 0.2s;
+                }
+            a.header:hover{
+            background-color:#49c5de;
+            color:white;
+            padding:4px 8px; 
+            text-decoration:none;
+            }
+            div.navbar{
+            background:#374fed;
+            padding-left:0;
+            padding-right:0;
+            position:fixed;
+            overflow-x:hidden;
+            width: 101%;
+            top: -23px;
+            right: 0;
+            margin-top: 8px;
+            }
+        }
+        @media only screen and (min-width: 411px) and (max-width: 823px){
+            img.menu-icon{
+                margin-left:46px;
+            }
+            div#menuList.col-md-8{
+                margin-left: -22px;
+            }
+        }
+    div.navbar{
+        background-color: #232323 !important; 
+        padding-left:0;
+        padding-right:0;
+        position:fixed;
+        overflow:hidden;
+        top:-25px;
+        left:-2px;
+        width:101.3%;
+        z-index: 2;
+        transform: translate(0px, -20px);
+        }
+        div.row{
+            background-color: #232323 !important;
+            padding: 0 0 0 0;
+            color: white;
+            font-size: 20px;
+            overflow: hidden;
+            margin-top: 32px;
+            margin-bottom: -14px;
+        }
+        img.volleyball{
+        padding:0px 15px 4px 15px;
+        }
+        img.menu-icon{
+            position: absolute;
+            z-index: 1;
+            transform: translate(177px, -13px);
+        }
+        a.header{
+        text-align: center;
+        padding:6px 8px;
+        color:white;
+        transition: 0.5s;
+        margin: 2px;
+        }
+        a.header:hover{
+        background-color:#42d49c;
+        text-align: center;
+        color:white;
+        padding:13px 8px; 
+        text-decoration:none;
+        border-radius: 10px;
+        margin: 2px;
+        }
+body{
+    font-family:Georgia;
+    font-size: 20px;
+    font-weight: 400;
+}
+body::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /* background: var(--color-darkblue); */
+    background-image: linear-gradient( 
+115deg
+, rgba(46, 45, 45, 0.7), rgba(35, 35, 35, 0.8) ), url(https://hobbyhelp.com/wp-content/uploads/2018/11/best-volleyball-ball1-1024x533.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div.a{
+padding:35px 35px 11px 35px;
+background:rgba(46, 45, 45, 0.6);
+}
+div{
+padding:10px;
+}
+</style>
+</head>
+<body style="padding-bottom: 35px;">
+<div class="navbar" id="mainList">
+            <img class="menu-icon" src="https://img.icons8.com/android/24/ffffff/menu.png" onclick="togglemenu()">
+            <div class="row">
+                <div class="col-md-4" id="menu">
+                    <a class="main" href="volleyball.html" style="text-decoration: none; color: white;"><img class="volleyball" src="https://img.icons8.com/android/24/ffffff/volleyball.png"/>
+                    VOLLEYBALL WORLD </a>
+                </div>
+                <div class="col-md-8" id="menuList" style='display:block;left:41%;color:white;'>
+                    <a class="header" href="volleyball.html"><img class="icons" width="39" src="https://img.icons8.com/material-rounded/50/ffffff/home.png"/ style="padding: 1px 8px 6px 8px;">Home</a>
+                    <a class="header" href="login.html"><img class="icons" src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png"/ style="padding: 1px 8px 6px 8px;">Login</a>
+                    <a class="header" href="signup.html"><img class="icons" width="39" src="https://img.icons8.com/metro/50/ffffff/add-user-male.png"/ style="padding: 1px 8px 6px 8px;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+<br><br>
+<center>
+<h2 style='padding-top:5px;color:white;'><i>Log In to see more !</i>
+</h2></center>
+<br>
+<div style='width:50%;margin:auto;color:white;' class=a>
+<form action="/action_page.php">
+<div class="form-group">
+<label>Userame</label>
+<input type="text" name="username" id="username" class="form-control" placeholder="Enter username" required>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
+</div>
+<div class="form-group">
+<label>Password</label>
+<input type="text" name="password" id="password" class="form-control" placeholder="Enter password" required>
+</div>
+<div class="submit" style="padding-top: 8px;">
+<button type="submit" class="btn btn-success" style='width:100%;padding: 12px;'>Submit</button>
+</div>
+</form>
+<center><h4 style="margin-top: -6px;">Don't have an account? | <a style="text-decoration: none;" href="signup.html">Sign Up</a></h4></center>
+</div>
+<script>
+        
+        var menuList = document.getElementById("menuList");
+
+        menuList.style.maxHeight = "0px";
+
+        function togglemenu() {
+
+        if(menuList.style.maxHeight == "0px")
+        {
+            menuList.style.maxHeight = "170px";
+        }
+        else
+        {
+            menuList.style.maxHeight = "0px";
+        }
+    }
+       </script>
+</body>
+</html>
