@@ -173,7 +173,7 @@ a.signup{
 </h2></center>
 <br>
 <div style='width:50%;margin:auto;color:white;' class=a>
-<form>
+<form onsubmit="return submitbutton()">
 <div class="form-group">
 <label>Userame</label>
 <input type="text" name="username" id="username" class="form-control" placeholder="Enter username" required>
@@ -193,7 +193,7 @@ a.signup{
 <input type="checkbox" onclick="Confirm_passwordFunction()"><label style="font-size: 15px;padding-top: 11px;padding-left: 6px;">Show Password</label>
 </div>
 <div class="submit" style="margin-top: -20px;">
-<button type="submit" class="btn btn-success" onclick="submitbutton()" style='width:100%;padding: 12px;transition: 0.2s;'>Submit</button>
+<button type="submit" class="btn btn-success" style='width:100%;padding: 12px;transition: 0.2s;'>Submit</button>
 </div>
 </form>
 <center><h4 style="margin-top: -6px;">Have an account already? | <a style="text-decoration: none;transition: 0.2s;" href="login.html">Log In</a></h4></center>
