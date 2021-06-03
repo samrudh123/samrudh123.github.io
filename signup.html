@@ -1,5 +1,5 @@
 <html>
-<head><title> Survey Form</title>
+<head><title> Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
@@ -173,7 +173,7 @@ a.signup{
 </h2></center>
 <br>
 <div style='width:50%;margin:auto;color:white;' class=a>
-<form action="/action_page.php">
+<form>
 <div class="form-group">
 <label>Userame</label>
 <input type="text" name="username" id="username" class="form-control" placeholder="Enter username" required>
@@ -184,23 +184,22 @@ a.signup{
 </div>
 <div class="form-group">
 <label>Password</label>
-<input type="text" name="password" id="password" class="form-control" placeholder="Enter password" required>
+<input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
+<input type="checkbox" onclick="PasswordFunction()"><label style="font-size: 15px;padding-top: 11px;padding-left: 6px;">Show Password</label>
 </div>
-<div class="form-group">
+<div class="form-group" style="margin-top: -10px">
 <label>Confirm Password</label>
-<input type="text" name="confirm_password" id="confirm_password" class="form-control" placeholder="Enter password" required>
+<input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm password" required>
+<input type="checkbox" onclick="Confirm_passwordFunction()"><label style="font-size: 15px;padding-top: 11px;padding-left: 6px;">Show Password</label>
 </div>
-<div class="form-group">
-<label>Age(optional)</label>
-<input type="number" name="age" id="age" class="form-control" placeholder="Enter age">
-</div>
-<div class="submit" style="padding-top: 8px;">
-<button type="submit" class="btn btn-success" style='width:100%;padding: 12px;'>Submit</button>
+<div class="submit" style="margin-top: -20px;">
+<button type="submit" class="btn btn-success" onclick="submitbutton()" style='width:100%;padding: 12px;transition: 0.2s;'>Submit</button>
 </div>
 </form>
-<center><h4 style="margin-top: -6px;">Have an account already? | <a style="text-decoration: none;" href="login.html">Log In</a></h4></center>
+<center><h4 style="margin-top: -6px;">Have an account already? | <a style="text-decoration: none;transition: 0.2s;" href="login.html">Log In</a></h4></center>
 </div>
-<script>
+</body>
+<script type="text/javascript">
         
         var menuList = document.getElementById("menuList");
 
@@ -210,13 +209,47 @@ a.signup{
 
         if(menuList.style.maxHeight == "0px")
         {
-            menuList.style.maxHeight = "170px";
+            menuList.style.maxHeight = "210px";
         }
         else
         {
             menuList.style.maxHeight = "0px";
         }
     }
-       </script>
-</body>
+</script>
+<script type="text/javascript">
+        function submitbutton() {
+
+            if(document.getElementById("confirm_password").value != document.getElementById("password").value){
+                alert("Please enter same password for confirming the password");
+                return false;
+            }
+        }
+</script>
+<script type="text/javascript">
+    
+        var toggle = document.getElementById("password");
+
+        function PasswordFunction() {
+            if(toggle.type == "password"){
+                toggle.type = "text";
+            }
+            else{
+                toggle.type = "password";
+            }
+        }
+        
+        var confirm_toggle = document.getElementById("confirm_password");
+
+        function Confirm_passwordFunction() {
+            if(confirm_toggle.type == "password"){
+                confirm_toggle.type = "text";
+            }
+            else{
+                confirm_toggle.type = "password";
+            }
+
+        }
+
+</script>
 </html>
