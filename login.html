@@ -173,14 +173,14 @@ a.login{
 </h2></center>
 <br>
 <div style='width:50%;margin:auto;color:white;' class=a>
-<form onsubmit="return validateForm()">
+<form action="http://localhost:8888/Project/login.php" method="post">  
 <div class="form-group">
 <label>Username</label>
-<input type="text" name="username" id="username" class="form-control" placeholder="Enter email" required>
+<input type="text" name="username" class="form-control" placeholder="Enter email" required>
 </div>
 <div>
 <label>Email</label>
-<input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
+<input type="email" name="email" class="form-control" placeholder="Enter email" required>
 </div>
 <div class="form-group" style="padding-top: 21px;">
 <label>Password</label>
@@ -188,7 +188,7 @@ a.login{
 <input type="checkbox" onclick="PasswordFunction()"><label style="font-size: 15px;padding-top: 11px;padding-left: 6px;">Show Password</label>
 </div>
 <div class="submit" style="margin-top: -20px;">
-<button type="submit" value="Submit" class="btn btn-success" style='width:100%;padding: 12px;transition: 0.2s;'>Submit</button>
+<input type="submit" value="Submit" class="btn btn-success" style='width:100%;padding: 12px;transition: 0.2s;'>
 </div>
 </form>
 <center><h4 style="margin-top: -4px;">Don't have an account? | <a style="text-decoration: none;transition: 0.2s;" href="signup.html">Sign Up</a></h4></center>
@@ -225,19 +225,5 @@ a.login{
             }
         }
 
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    function validateForm() {
-    $.post("demo_test_post.asp",
-    {
-    username: document.getElementById("username").value,
-    email: document.getElementById("email").value,
-    password: document.getElementById("pwd").value
-    },
-    function(data,status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-    }
 </script>
 </html>
