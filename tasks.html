@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasks Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="alert alert-danger" id="danger">
+    <strong>Invalid Input!</strong> Please fill in the task
+    </div>
+	<div class="alert alert-success" id="success">
+    <strong>Success!</strong> New task Created
+    </div>
+	<div class="container" style="padding: 8px;margin-top: 64px;">
+		<input type="text" id="task_name" class="form-control">
+		<div style="width: 100%;text-align: center;">
+		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px;margin-right: 8px;" onclick="createTask()">Add New Task</button>
+		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getToDoTask()">Get Last To-Do Task</button>
+		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getDoneTask()">Get Last Done Task</button>
+		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="delete_allTasks()">Delete All Tasks</button>
+	</div>
+	<h2>To-Do Tasks: </h2>
+	<table class="table" id="todotable" border="3">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id = "todotable_body">   
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <h2>Done Tasks: </h2>
+	<table class="table" id="donetable" border="3">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id = "donetable_body">   
+    </tbody>
+  </table>
+	</div>
+<script type="text/javascript">
+	var todoBody = document.getElementById("todotable_body");
+	var doneBody = document.getElementById("donetable_body");
+	var allTasks = localStorage.getItem("task");
+	var doneTasks = localStorage.getItem("doneTasks")
+	$('#danger').hide();
+	$('#success').hide(); 
+	renderTable(allTasks, todoBody, '#todotable', 0);
+	renderTable(doneTasks, doneBody, '#donetable', 1);
+
+	function renderTable(allTasks, tableBody, tableId, tableType){
+	if(allTasks){
+		var allTasksContent = '';
+		allTasks = allTasks.split(",");
+		allTasks.forEach(function(item,index){
+	    allTasksContent += "<tr class='info'><td>"+(index+1)+"</td><td>"+item+"</td><td><button class='btn-primary'>Edit</button> <button class='btn-danger' onclick='delete_task("+(index+1)+","+tableType+")'>Delete</button>";
+	    if (tableType == 0){ 
+	    	allTasksContent += " <button class='btn-success' onclick='complete_task("+(index+1)+")'>Complete</button>";
+	    }
+	    if (tableType == 1){
+	    	allTasksContent += " <button class='btn-warning' onclick='revert_task("+(index+1)+")'>Mark as To-Do</button>";
+	    }
+	    allTasksContent += "</tr>";
+		});
+		tableBody.innerHTML = allTasksContent;
+		}
+	else{
+		$(tableId).hide();
+	}
+}
+	
+	function createTask() {
+		var task = document.getElementById("task_name").value;
+		if (document.getElementById("task_name").value == ''){
+			$('#danger').show(1000,$('#danger').hide());
+		}
+		else{
+		if(localStorage.task){
+		allTasks = localStorage.getItem("task") + "," + task;
+		$('#success').show(1000,$('#success').hide());
+		}
+		else{
+			allTasks = task;
+		}
+	}
+
+	document.getElementById("task_name").value = '';
+	localStorage.setItem("task",allTasks);
+	allTasks = allTasks.split(",");
+	lastTask = allTasks.pop();
+	if(lastTask == '' || lastTask == 'null'){
+		delete_task(0,0);
+	}
+    location.reload();
+	}
+	function getToDoTask() {
+		allTasks = localStorage.getItem("task");
+		allTasks = allTasks.split(",");
+		alert(allTasks.pop());
+	}
+	function getDoneTask() {
+		allTasks = localStorage.getItem("doneTasks");
+		allTasks = allTasks.split(",");
+		alert(allTasks.pop());
+	}
+	function delete_task(index,tableType){
+		if (tableType == 0)
+		{
+			tableType = "task";
+		}
+		if (tableType == 1)
+		{
+			tableType = "doneTasks";
+		}
+		allTasks=localStorage.getItem(tableType);
+		if(allTasks){
+		allTasks = allTasks.split(",");
+		allTasks.splice(index-1,1);
+		localStorage.setItem(tableType,allTasks);
+		location.reload();
+		}
+	}
+
+	function complete_task(index){
+		allTasks = localStorage.getItem("task");
+		if(allTasks){
+			allTasks = allTasks.split(",");
+			if(allTasks.length >= index){
+				var tempTask = allTasks[index-1];
+				delete_task(index, 0);
+				if(localStorage.doneTasks){
+					var doneTasks = localStorage.getItem("doneTasks") + ',' + tempTask;
+				}
+				else{
+					var doneTasks = tempTask;
+				}
+				localStorage.setItem("doneTasks",doneTasks);
+				location.reload();
+			}
+		}
+	}
+
+	function revert_task(index){
+		allTasks = localStorage.getItem("doneTasks");
+		if(allTasks){
+			allTasks = allTasks.split(",");
+			if (allTasks.length >= index){
+				var midtask = allTasks[index-1];
+				delete_task(index, 1);
+				if(localStorage.task){
+					var task = localStorage.getItem("task") + ',' + midtask;
+				}
+				else{
+					var task = midtask;
+				}
+				localStorage.setItem("task", task);
+				location.reload();
+			}
+		}
+	}
+	function edit_task(){
+		
+	}
+
+	function delete_allTasks(){
+		localStorage.clear();
+		location.reload();
+	}
+</script>
+</body>
+</html>
