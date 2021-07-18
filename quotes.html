@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display Quotes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #bdaa86;">
+<div style='position:fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: #e3daca; padding: 30px; transition: 0.5s;'>
+  <button style="background-color: #90f0cd;padding: 15px; margin:15px; font-size: 20px; cursor: pointer;" onclick="get_quotes()">GENERATE QUOTE</button><br>
+<p style="font-size: 50px; display: none;" id="quote"></p>
+<p style ="font-size: 20px; display: none; text-align: right;" id="author"></p>
+ </div>
+<script type="text/javascript">
+  var quoteData = [];
+  function get_quotes() {
+    if (quoteData.length == 0){ 
+      var url = "https://type.fit/api/quotes";
+      $.get({
+        url: url,
+        success: function(data){
+      quoteData = JSON.parse(data);
+    },
+        async: false
+      });
+    }
+    var quotenumber = Math.floor((Math.random()*((quoteData.length)-0))+0);
+    $('#quote').show();
+    $('#author').show();
+    document.getElementById('quote').innerHTML = "&#8220;" + quoteData[quotenumber].text + "&#8221;";
+    document.getElementById('author').innerHTML = "~" + quoteData[quotenumber].author;
+  }
+</script>
+</body>
+</html>
