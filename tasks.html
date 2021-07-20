@@ -6,20 +6,34 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
+	.info td input{
+		display: none;
+	}
+	.info td .success{
+		display: none;
+	}
+	label {
+		font-weight: normal;
+	}
+</style>
 <body>
-	<div class="alert alert-danger" id="danger">
+	<div class="alert alert-danger" id="danger" style="text-align: center; border-radius: 2px; width:80%; margin: auto; margin-top: 20px; display: none;">
     <strong>Invalid Input!</strong> Please fill in the task
     </div>
-	<div class="alert alert-success" id="success">
+    <div class="alert alert-warning" id="warning" style="text-align: center; border-radius: 2px; width:80%; margin: auto; margin-top: 20px; display: none;">
+    <strong>Warning!</strong> This task is already present in your to-do tasks
+    </div>
+	<div class="alert alert-success" id="success" style="text-align: center; border-radius: 2px; width:80%; margin: auto; margin-top: 20px; display: none;">
     <strong>Success!</strong> New task Created
     </div>
 	<div class="container" style="padding: 8px;margin-top: 64px;">
 		<input type="text" id="task_name" class="form-control">
 		<div style="width: 100%;text-align: center;">
-		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px;margin-right: 8px;" onclick="createTask()">Add New Task</button>
-		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getToDoTask()">Get Last To-Do Task</button>
-		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getDoneTask()">Get Last Done Task</button>
-		<button class="btn-primary btn-lg" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="delete_allTasks()">Delete All Tasks</button>
+		<button class="btn-primary btn-lg" id="add-task" style="margin-top: 8px;padding: 4px;margin-right: 8px;" onclick="createTask()">Add New Task</button>
+		<button class="btn-primary btn-lg" id="get-last-to-do" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getToDoTask()">Get Last To-Do Task</button>
+		<button class="btn-primary btn-lg" id="get-last-done" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getDoneTask()">Get Last Done Task</button>
+		<button class="btn-primary btn-lg" id="delete-all" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="delete_allTasks()">Delete All Tasks</button>
 	</div>
 	<h2>To-Do Tasks: </h2>
 	<table class="table" id="todotable" border="3">
@@ -52,9 +66,7 @@
 	var todoBody = document.getElementById("todotable_body");
 	var doneBody = document.getElementById("donetable_body");
 	var allTasks = localStorage.getItem("task");
-	var doneTasks = localStorage.getItem("doneTasks")
-	$('#danger').hide();
-	$('#success').hide(); 
+	var doneTasks = localStorage.getItem("doneTasks"); 
 	renderTable(allTasks, todoBody, '#todotable', 0);
 	renderTable(doneTasks, doneBody, '#donetable', 1);
 
@@ -63,14 +75,14 @@
 		var allTasksContent = '';
 		allTasks = allTasks.split(",");
 		allTasks.forEach(function(item,index){
-	    allTasksContent += "<tr class='info'><td>"+(index+1)+"</td><td>"+item+"</td><td><button class='btn-primary'>Edit</button> <button class='btn-danger' onclick='delete_task("+(index+1)+","+tableType+")'>Delete</button>";
+	    allTasksContent += "<tr class='info'><td>"+"<label>"+(index+1)+"</label></td><td id='content_"+tableType+"_"+index+"'>"+"<label id='items_"+tableType+"_"+index+"'>"+item+"</label> <input class='val' type='text' id='value_"+tableType+"_"+index+"' value='"+allTasks[index]+"'> <button class = 'success btn-success' id='save' onclick='save_button("+(index+1)+","+tableType+")'>Save</button></td><td><button class='btn-primary' id='edit-btn' onclick='edit_task("+tableType+","+(index+1)+")'>Edit</button> <button class='btn-danger' id='delete-btn' onclick='delete_task("+(index+1)+","+tableType+")'>Delete</button>";
 	    if (tableType == 0){ 
-	    	allTasksContent += " <button class='btn-success' onclick='complete_task("+(index+1)+")'>Complete</button>";
+	    	allTasksContent += " <button class='btn-success' id='complete-btn' onclick='complete_task("+(index+1)+")'>Complete</button>";
 	    }
 	    if (tableType == 1){
-	    	allTasksContent += " <button class='btn-warning' onclick='revert_task("+(index+1)+")'>Mark as To-Do</button>";
+	    	allTasksContent += " <button class='btn-warning' id='warning-btn' onclick='revert_task("+(index+1)+")'>Mark as To-Do</button>";
 	    }
-	    allTasksContent += "</tr>";
+	    allTasksContent += "</td></tr>";
 		});
 		tableBody.innerHTML = allTasksContent;
 		}
@@ -81,21 +93,23 @@
 	
 	function createTask() {
 		var task = document.getElementById("task_name").value;
+		
 		if (document.getElementById("task_name").value == ''){
-			$('#danger').show(1000,$('#danger').hide());
+			$('#danger').show();
 		}
 		else{
 		if(localStorage.task){
-		allTasks = localStorage.getItem("task") + "," + task;
-		$('#success').show(1000,$('#success').hide());
+			if(allTasks.includes(document.getElementById("task_name").value) == true){
+				$('#warning').show();
+			}
+			allTasks = localStorage.getItem("task") + "," + task;
+			$('#success').show();
 		}
 		else{
 			allTasks = task;
-			$('#success').show(1000,$('#success').hide());
+			$('#success').show();
 		}
-	}
-
-	document.getElementById("task_name").value = '';
+		document.getElementById("task_name").value = '';
 	localStorage.setItem("task",allTasks);
 	allTasks = allTasks.split(",");
 	lastTask = allTasks.pop();
@@ -103,6 +117,7 @@
 		delete_task(0,0);
 	}
     location.reload();
+	}
 	}
 	function getToDoTask() {
 		allTasks = localStorage.getItem("task");
@@ -169,8 +184,54 @@
 			}
 		}
 	}
-	function edit_task(){
+	function edit_task(tableType,index){
+		$("#edit-btn").prop('disabled',true);
+		$("#delete-btn").prop('disabled',true);
+		$("#complete-btn").prop('disabled',true);
+		$("#warning-btn").prop('disabled',true);
+		$("#add-task").prop('disabled',true);
+		$("#get-last-to-do").prop('disabled',true);
+		$("#get-last-done").prop('disabled',true);
+		$("#delete-all").prop('disabled',true);
+		$("#task_name").prop('disabled',true);
+		$("#save").prop('disabled', false);
+		$("#content_"+tableType+"_"+(index-1)).children().toggle();
+		document.getElementById("value_"+tableType+"_"+(index-1)).select();
+	}
+
+	function save_button(index, tableType){
+		$("#edit-btn").prop('disabled',false);
+		$("#delete-btn").prop('disabled',false);
+		$("#complete-btn").prop('disabled',false);
+		$("#warning-btn").prop('disabled',false);
+		$("#add-task").prop('disabled',false);
+		$("#get-last-to-do").prop('disabled',false);
+		$("#get-last-done").prop('disabled',false);
+		$("#delete-all").prop('disabled',false);
+		$("#task_name").prop('disabled',false);
+		$("#content_"+tableType+"_"+(index-1)).children().toggle();
+		var items = document.getElementById("items_"+tableType+"_"+(index-1)).innerHTML;
+		var text_editor = document.getElementById("value_"+tableType+"_"+(index-1)).value;
+		items = text_editor;
+		if (tableType == 0)
+		{
+			tableType = "task";
+		}
+		if (tableType == 1)
+		{
+			tableType = "doneTasks";
+		}
 		
+		if(localStorage.task){
+			task = localStorage.getItem(tableType);
+			task = task.split(",");
+			task[index-1] = items;
+		}
+		else{
+			task = items;
+		}
+		localStorage.setItem(tableType,task);
+		location.reload();
 	}
 
 	function delete_allTasks(){
