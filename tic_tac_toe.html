@@ -24,7 +24,7 @@
   	}
   </style>
   </head>
-<body>
+<body style="background-color: #282a2e; color: white;">
 <div class="section">
 <div class="mid">
 	<div class="child" id="1" style="border-right: 1px solid gray; border-bottom: 1px solid gray;"></div>
@@ -74,6 +74,10 @@
  							alert("O WINS");
  						}
 						location.reload();
+ 					}
+ 					else if(($(a).val().length() != $(b).text()) && ($(b).text() != $(c).text())){
+ 						alert("Draw");
+ 						location.reload();
  					}
  				}
  			});
