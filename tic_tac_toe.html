@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.section{
+  		position:fixed;
+  		width: 600px;
+  		height: 600px;
+  		top: 50%;
+  		left: 50%;
+  		transform: translate(-50%, -50%);
+  	}
+  	.child{
+  		height: 200px;
+  		width: 200px;
+  		display: table-cell;
+  		text-align: center;
+  		vertical-align: middle;
+  		font-size: 6rem;
+  	}
+  </style>
+  </head>
+<body>
+<div class="section">
+<div class="mid">
+	<div class="child" id="1" style="border-right: 1px solid gray; border-bottom: 1px solid gray;"></div>
+	<div class="child" id="2" style="border-left: 1px solid gray; border-right: 1px solid gray; border-bottom: 1px solid gray;"></div>
+	<div class="child" id="3" style="border-left: 1px solid gray; border-bottom: 1px solid gray;"></div>
+</div>
+<div class="mid" style="padding: 0px;">
+	<div class="child" id="4" style="border-top: 1px solid gray; border-right: 1px solid gray; border-bottom: 1px solid gray;"></div>
+	<div class="child" id="5" style="border: 1px solid gray;"></div>
+	<div class="child" id="6" style="border-top: 1px solid gray; border-left: 1px solid gray; border-bottom: 1px solid gray;"></div>
+</div>
+<div class="mid" style="padding: 0px;">
+	<div class="child" id="7" style="border-top: 1px solid gray; border-right: 1px solid gray;"></div>
+	<div class="child" id="8" style="border-left: 1px solid gray; border-top: 1px solid gray; border-right: 1px solid gray;"></div>
+	<div class="child" id="9" style="border-top: 1px solid gray; border-left: 1px solid gray;"></div>
+</div>
+</div>
+ <script type="text/javascript">
+ 	var currentVal = 'X'
+ 	woncases = [ ['1','2','3'], ['1','4','7'], ['1','5','9'], ['4','5','6'], ['7','8','9'], ['2','5','8'], ['3','6','9'], ['3', '5', '7'] ]
+ 	$(document).ready(function() {
+ 		$('.child').click(function() {
+ 			if($(this).first().text() == ''){
+ 				var id = '1'
+ 				$(this).first().text(currentVal);
+ 				if(currentVal == 'X'){
+ 					currentVal = 'O'
+ 				}
+ 				else{
+ 					currentVal = 'X'
+ 				}
+ 			}
+ 			checkwincases(id)
+ 		});
+
+ 		function checkwincases(id){
+ 			woncases.forEach(function(row){
+ 				if(id in row){
+ 					var a = '#' + row[0];
+ 					var b = '#' + row[1];
+ 					var c = '#' + row[2];
+ 					if(($(a).text() != '') && ($(a).text() == $(b).text()) && ($(b).text() == $(c).text())){
+ 						if(($(a).text() == 'X') && ($(b).text() == 'X') && ($(c).text() == 'X')){
+ 							alert("X WINS");
+ 						}
+ 						if(($(a).text() == 'O') && ($(b).text() == 'O') && ($(c).text() == 'O')){
+ 							alert("O WINS");
+ 						}
+						location.reload();
+ 					}
+ 				}
+ 			});
+ 		}
+
+ 		function gamecompleted(){
+ 		}
+ 	});
+ </script>
+</body>
+</html>
