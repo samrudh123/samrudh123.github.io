@@ -17,7 +17,7 @@
 		font-weight: normal;
 	}
 </style>
-<body>
+<body style="background:rgba(46, 45, 45, 1)">
 	<div class="alert alert-danger" id="danger" style="text-align: center; border-radius: 2px; width:80%; margin: auto; margin-top: 20px; display: none;">
     <strong>Invalid Input!</strong> Please fill in the task
     </div>
@@ -35,13 +35,13 @@
 		<button class="btn-primary btn-lg" id="get-last-done" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="getDoneTask()">Get Last Done Task</button>
 		<button class="btn-primary btn-lg" id="delete-all" style="margin-top: 8px;padding: 4px; margin-bottom: 16px;margin-right: 8px;" onclick="delete_allTasks()">Delete All Tasks</button>
 	</div>
-	<h2>To-Do Tasks: </h2>
+	<h2><font color= "white">To-Do Tasks: </font></h2>
 	<table class="table" id="todotable" border="3">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Task</th>
-        <th>Action</th>
+        <th><font color= "white">ID</font></th>
+        <th><font color= "white">Task</font></th>
+        <th><font color= "white">Action</font></th>
       </tr>
     </thead>
     <tbody id = "todotable_body">   
@@ -49,13 +49,13 @@
   </table>
   <br>
   <br>
-  <h2>Done Tasks: </h2>
+  <h2><font color="white">Done Tasks: </font></h2>
 	<table class="table" id="donetable" border="3">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Task</th>
-        <th>Action</th>
+        <th><font color= "white">ID</font></th>
+        <th><font color= "white">Task</font></th>
+        <th><font color= "white">Action</font></th>
       </tr>
     </thead>
     <tbody id = "donetable_body">   
