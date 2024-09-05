@@ -1,470 +1,273 @@
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<style>
-		div.full-page{
-			font-family:Georgia;
-			width:100%;
-			height:auto;
-			position: relative;
-			overflow-x: hidden;
-			}
-		div.navbar{
-		background-color: #232323 !important; 
-		padding-left:0;
-		padding-right:0;
-		position:fixed;
-		overflow:hidden;
-		top:-25px;
-		left:-2px;
-		width:100.3%;
-		z-index: 2;
-		}
-		div.row{
-		background-color: #232323 !important;
-		padding:5px 0px;
-		color:white;
-		font-size:20px;
-		overflow:hidden;
-	    }
-		img.volleyball{
-		padding:0px 15px 4px 15px;
-		}
-		@media only screen and (min-width: 411px) and (max-width: 731px)
-		{
-			img.menu-icon{
-				right:-33px;
-			}
-		}
-		@media only screen and (min-width: 360px) and (max-width:640px)
-        {
-            div.row
-            { 
-                  background:#374fed; 
-                  margin-bottom: -31px; 
-                  margin-top: 5px;
-              }    
-            div#menuList.col-md-8{
-            	position: relative;
-            	width: 100%;
-            	margin-top: 0px;
-            	margin-bottom: 0px;
-            	display: block;
-				top:2%;
-				left:-1%;
-				transform: translate(-74px,6px);
-				color:white;
-				padding-bottom: 33px;
-				overflow: hidden;
-				transition: 0.5s;
-            }      
-            img.menu-icon{
-            	    position: relative;
-            	    transform: translate(327px, 36px);
-            	    z-index: 1;
-            }
-            a.header{
-            	display:block;
-				padding:4px 8px;
-				color:white;
-				transition: 0.2s;
-				}
-			a.header:hover{
-			background-color:#49c5de;
-			color:white;
-			padding:4px 8px; 
-			text-decoration:none;
-			}
-			div.navbar{
-			background:#374fed;
-			padding-left:0;
-			padding-right:0;
-			position:fixed;
-			overflow-x:hidden;
-			width: 101%;
-            top: -23px;
-            right: 0;
-	        }
-	        div.image{
-	        	width:112%;
-	        	padding: 100%;
-	        }
-	        div.intro{
-	        	position: relative;
-	        	top: 32px;
-	        }
-	        div.col-md-9{
-	        	padding-top:25%;
-	            text-align: center;
-	        }
-	        div.row2{
-	        	position: relative;
-	        	padding-right: 1110px;
-    			margin-left: -16px;
-    			padding-top: 23px;
-	        }
-	        iframe.tutorial{
-	        	position: relative;
-    			transform: translate(0px, 35px);
-	        }
-		}
-		@media only screen and (min-width: 411px) and (max-width:823px)
-        {
-            div.row
-            { 
-                  background:#374fed; 
-                  margin-bottom: -31px; 
-                  margin-top: 5px;
-              }    
-            div#menuList.col-md-8{
-                position: relative;
-                width: 100%;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                display: block;
-                top:2%;
-                left:-1%;
-                transform: translate(-74px,6px);
-                color:white;
-                padding-bottom: 33px;
-                overflow: hidden;
-                transition: 0.5s;
-            }      
-            img.menu-icon{
-                position: relative;
-                z-index: 1;
-                display:block;
-                transform: translate(344px,36px);
-                cursor: pointer;
-            }
-            a.header{
-                display:block;
-                padding:4px 8px;
-                color:white;
-                transition: 0.2s;
-                }
-            a.header:hover{
-            background-color:#49c5de;
-            color:white;
-            padding:4px 8px; 
-            text-decoration:none;
-            }
-            div.navbar{
-            background:#374fed;
-            padding-left:0;
-            padding-right:0;
-            position:fixed;
-            overflow-x:hidden;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Tutorials</title>
+    <!-- Bootstrap CDN for responsiveness and easy styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: Georgia, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .full-page {
             width: 100%;
-            top: -23px;
-            right: 0;
-            margin-left: 2px;
-            }
-            div.image{
-                width:112%;
-                padding: 100%;
-            }
-            div.intro{
-                position: relative;
-                top:32px;
-            }
-            div.row2{
-            	left:6%;
-	        }
+            height: auto;
+            position: relative;
+            overflow-x: hidden;
         }
-        @media only screen and (min-width: 800px) and (max-width: 1280px){
-            div#menuList.col-md-8{
-                margin-left: -57px;
-            }
-        }
-        @media only screen and (min-width: 768px) and (max-width: 1366px){
-        	div#menuList.col-md-8{
-        		    left:-40px;
-        	}
-        	iframe.tutorial{
-        		right: -46px;
-        	}
-        	div#recommend.col-md-8{
-        		margin-top: -6px;
-        	}
-        }
-        @media only screen and (min-width: 900px) and (max-width: 1440px){
-        	div#menuList.col-md-8{
-        		    position: relative;
-    				transform: translate(456px,-28px);
-    				width: 100%;
-        	}
-        	iframe.tutorial{
-        		position: relative;
-        		transform: translate(20px,0px);
-        	}
-        }
-		a.header{
-		text-align: center;
-		padding:10px 8px;
-		color:white;
-		transition: 0.5s;
-		margin: 2px;
-		}
-		a.volleyball{
-		background-color: #1b93de
-		}
-		a.header:hover{
-		background-color:#42d49c;
-		text-align: center;
-		color:white;
-		padding:13px 8px; 
-		text-decoration:none;
-		border-radius: 10px;
-        margin: 2px;
-		}
-		a.header:visited{
-		color:white;
-		}
-		a.active{
-		padding:12px 36%;
-		color:black;
-		font-size:20px;
-		text-align:center;
-		align-items:center;
-		background-color:#eee;
-		padding-left:76px;
-		transition: 0.3s;
-		cursor: pointer;
-		}
-		a.active1{
-		padding:12px 40%;
-		color:black;
-		font-size:20px;
-		text-align:center;
-		align-items:center;
-		padding-left:76px;
-		background-color:#fff;
-		transition: 0.3s;
-		cursor: pointer;
-		}
-		a.active2{
-		padding:12px 40%;
-		color:black;
-		font-size:20px;
-		text-align:center;
-		align-items:center;
-		background-color:#eee;
-		padding-left:76px;
-		transition: 0.3s;
-		cursor: pointer;
-		}
-		a.active3{
-		padding:12px 41%;
-		color:black;
-		font-size:20px;
-		text-align:center;
-		align-items:center;
-		padding-left:75px;
-		background-color:#fff;
-		transition: 0.3s;
-		cursor: pointer;
-		}
-		a.active4{
-		padding:12px 35%;
-		color:black;
-		font-size:20px;
-		text-align:center;
-		align-items:center;
-		background-color:#eee;
-		padding-left:73px;
-		transition: 0.3s;
-		cursor: pointer;
-		}
-		a.active:hover{
-		padding:12px 42%;
-		background-color:#42d49c;
-		color:white;
-		font-size:20px;
-		text-decoration:none;
-		text-align:right;
-		align-items:right;
-		cursor: pointer;
-		}
-		a.active1:hover{
-		padding:12px 43%;
-		background-color:#42d49c;
-		color:white;
-		font-size:20px;
-		text-decoration:none;
-		text-align:right;
-		align-items:right;
-		cursor: pointer;
-		}
-		a.active2:hover{
-		padding:12px 43%;
-		background-color:#42d49c;
-		color:white;
-		font-size:20px;
-		text-decoration:none;
-		text-align:right;
-		align-items:right;
-		cursor: pointer;
-		}
-		a.active3:hover{
-		padding:12px 42%;
-		background-color:#42d49c;
-		color:white;
-		font-size:20px;
-		text-decoration:none;
-		text-align:right;
-		align-items:right;
-		cursor: pointer;
-		}
-		a.active4:hover{
-		padding:12px 39%;
-		background-color:#42d49c;
-		color:white;
-		font-size:20px;
-		text-decoration:none;
-		text-align:right;
-		align-items:right;
-		cursor: pointer;
-		}
-		div.links{
-		height:33%;
-		width:76%;
-		}
-		iframe.rules{
-			position: relative;
-			margin-top: 10%;
-			margin-left: 15%;
-		}
-		iframe.tutorial{
-			margin-left: 55%;
-			margin-top: 10%;
-		}
-	 	a.footer:hover{
-			color:#38b3e8;
-			text-decoration:none;
-			}
-		img.menu-icon{
-			position: absolute;
-			z-index: 1;
-    		transform: translate(177px, 40px);
-		}
-		</style>
-		<title> Volleyball tutorials </title>
-	    </head>
-		<body>
-		<div class="full-page">
-		<div class="navbar" id="mainList">
-			<img class="menu-icon" src="https://img.icons8.com/android/24/ffffff/menu.png" onclick="togglemenu()">
-			<div class="row">
-				<div class="col-md-4" id="menu">
-					<a class="main" href="volleyball.html" style="text-decoration: none; color: white;"><img class="volleyball" src="https://img.icons8.com/android/24/ffffff/volleyball.png"/>
-					VOLLEYBALL WORLD </a>
-				</div>
-				<div class="col-md-8" id="menuList" style='display:block;padding-left:42%;color:white;'>
-					<a class="header volleyball" href="volleyball.html"><img class="icons" width="39" src="https://img.icons8.com/material-rounded/50/ffffff/home.png"/ style="padding: 1px 8px 6px 8px;">Home</a>
-					<a class="header" href="login.html"><img class="icons" src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png"/ style="padding: 1px 8px 6px 8px;">Login</a>
-					<a class="header" href="signup.html"><img class="icons" width="39" src="https://img.icons8.com/metro/50/ffffff/add-user-male.png"/ style="padding: 1px 8px 6px 8px;">Sign Up</a>
-				</div>
-			</div>
-		</div>
-		<br><br>
-		<div class="image" style='padding-left:100px;padding-right:100px;padding-top:100px;padding-bottom:50px;background-image:linear-gradient(115deg, rgba(46, 45, 45, 0.3), rgba(35, 35, 35, 0.3) ),url("https://hobbyhelp.com/wp-content/uploads/2018/11/best-volleyball-ball1-1024x533.jpg");background-size:cover;background-position: center;'>
-			<div class="intro" style='color:white;font-size:20px;padding-top:6%;'>
-				<h1><b>Volleyball Tutorials</b></h1>
-				<b>Volleyball is a game of Hardwork and Teamwork which is not only driven by pure spirit but also by an ocean of confidence and trust.</b>
-			</div>
-		</div>
-		<br>
-		<div class="row1" style='width:87%;margin:auto;position: relative;z-index: 0;'>
-			<br>
-			<div class="col-md-3">
-				<div class="links">
-					<br>
-					<font face="Lucida Bright">
-						<a class="active" href="receive.html">Defense</a><br><br>
-						<a class="active1" href="Spike.html">Spiking</a><br><br>
-						<a class="active2" href="Set.html">Setting</a><br><br>
-						<a class="active3" href="serves.html">Serving</a><br><br>
-						<a class="active4" href="Block.html">Blocking</a><br><br>
-					</font>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<div class="content" style='margin-left: 5%;'>
-      				<font size="4" face="Lucida Bright">Introduction to Volleyball</font>
-      			</div>
-				<div class="row2">
-					<div class="col-md-3">
-						<iframe class="rules" width="300" height="160" src="https://www.youtube.com/embed/OWCkPbzq81g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="col-md-3">
-						<iframe class="tutorial" width="300" height="160" src="https://www.youtube.com/embed/33sWyhjhacM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<footer style="width: 100%;background-color: #2e2d2d;margin:auto;padding-bottom: 100px;padding-left: 60px;padding-right: 100px;padding-top: 40px;">
-        	<div class="row3" style="width:75%;margin: auto;">
-       			<div class="col-md-8" id="recommend" style="background-color: #2e2d2d;color: white;font-size: 19px;padding-top: 20px;">
-       				For more good volleyball content and videos, check out <a class="footer" href="https://www.youtube.com/channel/UCoEMagRUvrXELuJZwS4DevA" style="color:#38b3e8;text-decoration:none;" target="_blank">Elevate Yourself</a>
-       			</div>
-       			<div class="col-md-4" style="background-color: #2e2d2d;color: white;font-size: 19px;padding-left: 8%;border-left: 2px solid white;">
-       				Contact Us:<br>
-				<div style="padding-top:6px;font-size:15px;">
-       					samrudhraaj@gmail.com<br>
-					Karnataka,India<br>
-				</div>
-      			</div>
-       		</div>
-       </footer>
-       </div>
-       <script>
-       	
-       	var menuList = document.getElementById("menuList");
 
-       	menuList.style.maxHeight = "0px";
+        .navbar {
+            background-color: #232323 !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+        }
 
-       	function togglemenu() {
+        .navbar .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
 
-       	if(menuList.style.maxHeight == "0px")
-		{
-			menuList.style.maxHeight = "170px";
-		}
-        else
-		{
-			menuList.style.maxHeight = "0px";
-		}
-	}
-       </script>
-	</body>
+        .navbar .menu .menu-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #49c5de;
+            border-radius: 10px;
+        }
+
+        /* Align these links to the right for larger screens */
+        .navbar .right-links {
+			display: flex;
+            margin-left: auto;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: linear-gradient(115deg, rgba(46, 45, 45, 0.3), rgba(35, 35, 35, 0.3)), url("https://hobbyhelp.com/wp-content/uploads/2018/11/best-volleyball-ball1-1024x533.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+        }
+
+        /* Content Section */
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .content-section .links {
+            flex: 1 1 20%;
+            padding: 20px;
+        }
+
+        .content-section .links a {
+            display: block;
+            background-color: #eee;
+            color: black;
+            font-size: 1.2em;
+            padding: 15px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .content-section .links a:hover {
+            background-color: #42d49c;
+            color: white;
+        }
+
+        .content-section .main-content {
+            flex: 1 1 70%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 300px;
+            height: 160px;
+            margin: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2e2d2d;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #38b3e8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar .menu {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+
+            .navbar .menu-links {
+                display: none; /* Hide links by default on mobile */
+            }
+
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-section .links {
+                flex: 1 1 100%;
+            }
+
+            .content-section .main-content {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (min-width: 769px) {
+
+            .navbar .menu-links {
+                display: flex; /* Always show links on larger screens */
+            }
+
+            .navbar .right-links {
+                display: flex; /* Align the right links properly */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="menu">
+            <!-- Menu Icon (Visible only on mobile)
+            <a href="javascript:void(0);" class="menu-icon" onclick="togglemenu()">
+                <img src="https://img.icons8.com/android/24/ffffff/menu.png" alt="Menu Icon">
+            </a> -->
+            
+            <!-- Menu Links -->
+            <div class="menu-links">
+                <a href="volleyball.html">
+                    <img class="volleyball" src="https://img.icons8.com/android/24/ffffff/volleyball.png" alt="Volleyball Icon"> VOLLEYBALL WORLD
+                </a>
+            </div>
+
+            <!-- Links to be aligned to the right on larger screens -->
+            <div class="right-links">
+                <a href="volleyball.html">
+                    <img src="https://img.icons8.com/material-rounded/50/ffffff/home.png" alt="Home Icon" style="height: 20px;"> Home
+                </a>
+                <a href="login.html">
+                    <img src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png" alt="Login Icon" style="height: 20px;"> Login
+                </a>
+                <a href="signup.html">
+                    <img src="https://img.icons8.com/metro/50/ffffff/add-user-male.png" alt="Sign Up Icon" style="height: 20px;"> Sign Up
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Volleyball Tutorials</h1>
+        <p>Volleyball is a game of Hardwork and Teamwork driven by pure spirit, confidence, and trust.</p>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <!-- Links Section -->
+        <div class="links">
+            <a href="receive.html">Defense</a>
+            <a href="spike.html">Spiking</a>
+            <a href="set.html">Setting</a>
+            <a href="serves.html">Serving</a>
+            <a href="block.html">Blocking</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Introduction to Volleyball</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/OWCkPbzq81g" title="Volleyball Defense Tutorial"></iframe>
+                <iframe src="https://www.youtube.com/embed/33sWyhjhacM" title="Volleyball Spiking Tutorial"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>For more good volleyball content and videos, check out <a href="https://www.youtube.com/channel/UCoEMagRUvrXELuJZwS4DevA" target="_blank">Elevate Yourself</a>.</p>
+            </div>
+            <div class="footer-right">
+                <p>Contact Us: samrudhraaj@gmail.com</p>
+                <p>Karnataka, India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script>
+        function togglemenu() {
+            var menuList = document.querySelector('.menu-links');
+            if (menuList.style.display === 'block') {
+                menuList.style.display = 'none';
+            } else {
+                menuList.style.display = 'block';
+            }
+        }
+    </script> -->
+</body>
 </html>
