@@ -24,7 +24,7 @@
         }
 
         .navbar {
-            background-color: #232323 !important;
+            background-color: #0f0124 !important;
             position: fixed;
             top: 0;
             left: 0;
@@ -43,6 +43,7 @@
 
         .navbar .menu .menu-links {
             display: flex;
+            margin-right: auto;
             gap: 15px;
         }
 
@@ -88,7 +89,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 0.1px;
         }
 
         .content-section .links {
@@ -116,21 +117,40 @@
 
         .content-section .main-content {
             flex: 1 1 70%;
-            padding: 20px;
             text-align: center;
         }
 
+        .content-section .main-content h2 {
+            margin-bottom: 20px;
+        }
+
         .video-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
         }
 
         .video-container iframe {
             width: 100%;
-            max-width: 300px;
-            height: 160px;
-            margin: 10px;
+            height: auto;
+            aspect-ratio: 16/9;
+            border: 4px solid #ddd; /* Light grey border */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a 3D effect */
+            transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .video-container iframe:hover {
+            border-color: #42d49c; /* Change border color on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+        }
+
+        .video-container h4 {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+            font-size: 16px;
         }
 
         /* Footer */
@@ -142,7 +162,7 @@
 
         footer .footer-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             font-size: 20px;
         }
@@ -213,9 +233,6 @@
 
             <!-- Links to be aligned to the right on larger screens -->
             <div class="right-links">
-                <a href="volleyball.html">
-                    <img src="https://img.icons8.com/material-rounded/50/ffffff/home.png" alt="Home Icon" style="height: 20px;"> Home
-                </a>
                 <a href="login.html">
                     <img src="https://img.icons8.com/material/24/ffffff/enter-2--v1.png" alt="Login Icon" style="height: 20px;"> Login
                 </a>
@@ -247,8 +264,14 @@
         <div class="main-content">
             <h2>Introduction to Volleyball</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/OWCkPbzq81g" title="Volleyball Defense Tutorial"></iframe>
-                <iframe src="https://www.youtube.com/embed/33sWyhjhacM" title="Volleyball Spiking Tutorial"></iframe>
+                <div>
+                    <iframe src="https://www.youtube.com/embed/OWCkPbzq81g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>></iframe>
+                    <h4>Volleyball Rules</h4>
+                </div>
+                <div>
+                    <iframe src="https://www.youtube.com/embed/33sWyhjhacM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>></iframe>
+                    <h4>Basic Rule Violations</h4>
+                </div>
             </div>
         </div>
     </section>
@@ -256,13 +279,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                <p>For more good volleyball content and videos, check out <a href="https://www.youtube.com/channel/UCoEMagRUvrXELuJZwS4DevA" target="_blank">Elevate Yourself</a>.</p>
-            </div>
-            <div class="footer-right">
-                <p>Contact Us: samrudhraaj@gmail.com</p>
-                <p>Karnataka, India</p>
-            </div>
+            <p>For more good volleyball content and videos, check out <a href="https://www.youtube.com/channel/UCoEMagRUvrXELuJZwS4DevA" target="_blank">Elevate Yourself</a>.</p>
         </div>
     </footer>
 
